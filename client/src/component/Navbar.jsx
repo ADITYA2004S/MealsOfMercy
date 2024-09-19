@@ -12,7 +12,10 @@ export default function Navbar() {
       <div className="nav-list">
         <li>About</li>
         <li>Business</li>
-        <li>Food Waste</li>
+        <li>
+          {" "}
+          <span className="bg-black bg-opacity-20 p-2 ">Food Waste</span>
+        </li>
       </div>
     </div>
   );
