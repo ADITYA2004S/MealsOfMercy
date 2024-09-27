@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "sourceMap": true,
+    "strict": true,
+
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "target": "ES2022",
+
+    "sourceRoot": "./dist",
+    "mapRoot": "./dist",
+    "outDir": "./dist",
+    "rootDir": "./src"
+  }
+}
