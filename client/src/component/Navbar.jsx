@@ -6,7 +6,7 @@ export default function Navbar() {
     <div className="navbar-sec">
       <div className="nav-company">
         <img className="nav-company-logo" src={logo} alt="" />
-        <p className="nav-company-title">Sev Meals</p>
+        <p className="nav-company-title">Seva Meals</p>
       </div>
 
       <div className="nav-list">

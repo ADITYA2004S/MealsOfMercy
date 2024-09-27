@@ -12,7 +12,6 @@ export default function Hero() {
           in need. Minimize food waste by efficiently redistributing surplus
           food items.
         </p>
-        <p className="text-shadow-lg">SHADOW</p>
 
         <div className="hero-intro-btn">
           <a href="">

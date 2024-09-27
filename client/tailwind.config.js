@@ -1,5 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+// Use `import` instead of `require`
+import withMT from "@material-tailwind/react/utils/withMT";
+import textShadow from "tailwindcss-textshadow";
+
+// Export the configuration using `export default`
+export default withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -12,7 +16,10 @@ module.exports = {
       fontFamily: {
         Poppins: ["Poppins", "system-ui"],
       },
+      colors: {
+        green: "#016d6c",
+      },
     },
   },
-  plugins: [require("tailwindcss-textshadow")],
-};
+  plugins: [textShadow],
+});

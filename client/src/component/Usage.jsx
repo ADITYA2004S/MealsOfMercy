@@ -50,7 +50,6 @@ function UsageDetails({ details }) {
       {details.map((info) => (
         <div>
           <img src={info.img} alt="" />
-          {/* <h1>{info.title}</h1> */}
           <p className="text-xl font-Poppins w-60 pt-4">{info.desc}</p>
         </div>
       ))}
