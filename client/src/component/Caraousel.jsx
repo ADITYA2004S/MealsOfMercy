@@ -1,16 +1,23 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
+import carousel from "../images/carousel.jpg";
+import carousel2 from "../images/carousel2.jpg";
+import carousel3 from "../images/carousel3.jpg";
 
 export default function CarouselWithContent() {
   return (
-    <Carousel className="rounded-xl">
-      <div className="relative h-full w-full">
+    <Carousel className=" mt-40">
+      <div className="relative h-[700px] w-full">
+        {" "}
+        {/* Set a fixed height */}
         <img
-          src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+          src={carousel}
           alt="image 1"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
-          <div className="w-3/4 text-center md:w-2/4">
+        <div className="absolute inset-0 grid h-full w-full place-items-start p-8 bg-black/50">
+          {" "}
+          {/* Align text to upper-left */}
+          <div className="w-3/4 md:w-2/4">
             <Typography
               variant="h1"
               color="white"
@@ -28,7 +35,7 @@ export default function CarouselWithContent() {
               of air that emanation from old trees, that so wonderfully changes
               and renews a weary spirit.
             </Typography>
-            <div className="flex justify-center gap-2">
+            <div className="flex gap-2">
               <Button size="lg" color="white">
                 Explore
               </Button>
@@ -39,14 +46,14 @@ export default function CarouselWithContent() {
           </div>
         </div>
       </div>
-      <div className="relative h-full w-full">
+      <div className="relative h-[700px] w-full">
         <img
-          src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          src={carousel2}
           alt="image 2"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-          <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
+        <div className="absolute inset-0 grid h-full w-full place-items-start p-8 bg-black/50">
+          <div className="w-3/4 md:w-2/4">
             <Typography
               variant="h1"
               color="white"
@@ -60,7 +67,7 @@ export default function CarouselWithContent() {
               className="mb-12 opacity-80"
             >
               It is not so much for its beauty that the forest makes a claim
-              upon men apos;s hearts, as for that subtle something, that quality
+              upon men&apos;s hearts, as for that subtle something, that quality
               of air that emanation from old trees, that so wonderfully changes
               and renews a weary spirit.
             </Typography>
@@ -75,14 +82,14 @@ export default function CarouselWithContent() {
           </div>
         </div>
       </div>
-      <div className="relative h-full w-full">
+      <div className="relative h-[700px] w-full">
         <img
-          src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
+          src={carousel3}
           alt="image 3"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-end bg-black/75">
-          <div className="w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
+        <div className="absolute inset-0 grid h-full w-full place-items-start p-8 bg-black/50">
+          <div className="w-3/4 md:w-2/4">
             <Typography
               variant="h1"
               color="white"
@@ -96,9 +103,9 @@ export default function CarouselWithContent() {
               className="mb-12 opacity-80"
             >
               It is not so much for its beauty that the forest makes a claim
-              upon men ;s hearts, as for that subtle something, that quality of
-              air that emanation from old trees, that so wonderfully changes and
-              renews a weary spirit.
+              upon men&apos;s hearts, as for that subtle something, that quality
+              of air that emanation from old trees, that so wonderfully changes
+              and renews a weary spirit.
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">

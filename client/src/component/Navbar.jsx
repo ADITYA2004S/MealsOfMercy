@@ -11,7 +11,10 @@ export default function Navbar() {
 
       <div className="nav-list">
         <li>About</li>
-        <li>Business</li>
+        <a href="#business">
+          {" "}
+          <li>Business</li>
+        </a>
         <li>
           {" "}
           <span className="bg-black bg-opacity-20 p-2 ">Food Waste</span>
