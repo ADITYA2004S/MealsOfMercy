@@ -29,7 +29,6 @@ const userSchema = new Schema<User>(
       required: true,
       unique: true,
     },
-
     mobile: {
       type: Schema.Types.Number,
       required: true,
@@ -43,7 +42,6 @@ const userSchema = new Schema<User>(
         "Mobile Number Must Be 10 Digits and Starts With 6, 7, 8, or 9",
       ],
     },
-
     password: {
       type: Schema.Types.String,
       required: true,

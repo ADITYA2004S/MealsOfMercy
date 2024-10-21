@@ -6,6 +6,8 @@ import cors from "cors";
 import connectMongoDB from "./services/mongoService";
 
 import userRouter from "./routers/userRouter";
+import restaurantRouter from "./routers/restaurantRouter";
+import itemRouter from "./routers/ItemRouter";
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ app.use(
 
 connectMongoDB();
 
-app.use("/api", userRouter);
+app.use("/api/user", userRouter);
+app.use("/api/restaurant", restaurantRouter);
+app.use("/api/item", itemRouter);
 
 export default app;
