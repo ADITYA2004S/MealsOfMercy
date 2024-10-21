@@ -3,6 +3,10 @@ import express, { Application } from "express";
 import { urlencoded, json } from "body-parser";
 import cors from "cors";
 
+import connectMongoDB from "./services/mongoService";
+
+import userRouter from "./routers/userRouter";
+
 dotenv.config();
 
 const app: Application = express();
@@ -12,15 +16,13 @@ app.use(json());
 
 app.use(
   cors({
-    origin: process.env.DEVELOPMENT_PORT,
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+    origin: process.env.CORS,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   })
 );
 
-app.get("/", (req, res) => {
-  res.json({
-    name: "Ryan Nolasco D Mello"
-  });
-});
+connectMongoDB();
+
+app.use("/api", userRouter);
 
 export default app;
