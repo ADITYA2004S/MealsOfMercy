@@ -2,6 +2,8 @@ import { Error } from "mongoose";
 
 import RestaurantModel, { Item } from "../../models/RestaurantModel";
 
+import getUniqueID from "../../utils/getUniqueID";
+
 const addItems = async (restaurantID: string, items: Item[]) => {
   const dbRestaurant = await RestaurantModel.findOne({ id: restaurantID });
 
@@ -9,7 +11,10 @@ const addItems = async (restaurantID: string, items: Item[]) => {
     throw new Error("Restaurant Does Not Exist");
   }
 
-  dbRestaurant.items.push(...items);
+  for (const item of items) {
+    const id = getUniqueID("ITEM", 6);
+    dbRestaurant.items.push({ ...item, id });
+  }
 
   try {
     return await dbRestaurant.save();

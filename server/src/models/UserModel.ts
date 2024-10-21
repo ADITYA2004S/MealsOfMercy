@@ -7,9 +7,31 @@ export interface User {
   email: string;
   mobile: number;
   password: string;
+  item: Item;
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface Item {
+  id: string;
+  createdAt?: Date;
+}
+
+const itemSchema = new Schema<Item>(
+  {
+    id: {
+      type: Schema.Types.String,
+      required: false,
+      default: "",
+    },
+  },
+  {
+    timestamps: {
+      createdAt: true,
+      updatedAt: false,
+    },
+  }
+);
 
 const userSchema = new Schema<User>(
   {
@@ -45,6 +67,12 @@ const userSchema = new Schema<User>(
     password: {
       type: Schema.Types.String,
       required: true,
+    },
+    item: {
+      _id: false,
+      type: itemSchema,
+      required: false,
+      default: {},
     },
   },
   {

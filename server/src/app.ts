@@ -7,7 +7,6 @@ import connectMongoDB from "./services/mongoService";
 
 import userRouter from "./routers/userRouter";
 import restaurantRouter from "./routers/restaurantRouter";
-import itemRouter from "./routers/ItemRouter";
 
 dotenv.config();
 
@@ -27,6 +26,5 @@ connectMongoDB();
 
 app.use("/api/user", userRouter);
 app.use("/api/restaurant", restaurantRouter);
-app.use("/api/item", itemRouter);
 
 export default app;

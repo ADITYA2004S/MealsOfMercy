@@ -17,6 +17,7 @@ export interface Manager {
 }
 
 export interface Item {
+  id: string;
   name: string;
   description: string;
   quantity: number;
@@ -38,6 +39,10 @@ const managerSchema = new Schema<Manager>({
 });
 
 const itemSchema = new Schema<Item>({
+  id: {
+    type: Schema.Types.String,
+    required: true,
+  },
   name: {
     type: Schema.Types.String,
     required: true,

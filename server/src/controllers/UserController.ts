@@ -5,6 +5,8 @@ import registerUser from "../database/user/registerUser";
 import loginUser from "../database/user/loginUser";
 import updateUser from "../database/user/updateUser";
 
+import addItem from "../database/user/addItem";
+
 export const _fetchUser = async (req: Request, res: Response) => {
   try {
     const user = await fetchUser(req.params.email);
@@ -48,6 +50,18 @@ export const _loginUser = async (req: Request, res: Response) => {
 export const _updateUser = async (req: Request, res: Response) => {
   try {
     const user = await updateUser(req.params.email, req.body);
+    res.status(200).json(user);
+  } catch (error: unknown) {
+    res.status(404).json({
+      error: error instanceof Error && error.message,
+    });
+  }
+};
+
+
+export const _addItem = async (req: Request, res: Response) => {
+  try {
+    const user = await addItem(req.params.email, req.params.itemID);
     res.status(200).json(user);
   } catch (error: unknown) {
     res.status(404).json({
