@@ -3,7 +3,10 @@ import { useFormik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 
+import useUser from "../hooks/useUser";
+
 export default function UserRegistration() {
+  const { setEmail } = useUser();
   const navigate = useNavigate();
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
@@ -32,13 +35,11 @@ export default function UserRegistration() {
           .oneOf([Yup.ref("password"), null], "Passwords must match")
           .required("Confirm your password"),
       }),
-      validate: () => {
-        console.log(errors);
-      },
       onSubmit: async (values) => {
         try {
-          await axios.post("/api/user/register", values);
-          navigate("/");
+          const user = await axios.post("/api/user/register", values);
+          setEmail(user.data.email);
+          navigate(`/${user.data.email}/restaurants`);
         } catch (error) {
           console.log(error);
         }

@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import useUser from "../hooks/useUser";
+
 import LocationIcon from "../images/location.png";
 import PopularIcon from "../images/popular.png";
 import HotelIcon from "../images/hotel.png";
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
+  const { email } = useUser();
 
   useEffect(() => {
     const fetch = async () => {
@@ -20,7 +23,7 @@ export default function Restaurants() {
 
   return (
     <div id="business">
-      <p className="pt-5 pl-5 text-5xl">Good Morning UserName</p>
+      <p className="pt-5 pl-5 text-5xl">Good Morning {email}</p>
       <p className="text-xl pl-20 pt-2">Let&apos;s Explore today&apos;s Menu</p>
 
       <div className="flex justify-center relative">
@@ -59,7 +62,7 @@ export default function Restaurants() {
                 </div>
 
                 <Link
-                  to={`/restaurants/${restaurant.id}`}
+                  to={`/${email}/restaurants/${restaurant.id}`}
                   className="bg-light-green-700 px-3 py-1 rounded-xl mt-5 text-white font-bold"
                 >
                   Book Now

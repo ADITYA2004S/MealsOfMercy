@@ -3,15 +3,18 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import useUser from "../hooks/useUser";
+
 export default function Item() {
   const navigate = useNavigate();
+  const { email } = useUser();
   const { id } = useParams();
 
   const [item, setItem] = useState(undefined);
 
   const handleSelect = async () => {
-    await axios.post(`/api/user/ryan@gmail.com/${item.id}`);
-    navigate(`/user/item/${item.id}`);
+    await axios.post(`/api/user/${email}/${item.id}`);
+    navigate(`/${email}/ticket/${item.id}`);
   };
 
   useEffect(() => {

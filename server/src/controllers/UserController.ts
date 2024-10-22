@@ -5,6 +5,7 @@ import registerUser from "../database/user/registerUser";
 import loginUser from "../database/user/loginUser";
 import updateUser from "../database/user/updateUser";
 
+import fetchItem from "../database/user/fetchItem";
 import addItem from "../database/user/addItem";
 
 export const _fetchUser = async (req: Request, res: Response) => {
@@ -58,6 +59,17 @@ export const _updateUser = async (req: Request, res: Response) => {
   }
 };
 
+
+export const _fetchItem = async (req: Request, res: Response) => {
+  try {
+    const item = await fetchItem(req.params.itemID);
+    res.status(200).json(item);
+  } catch (error: unknown) {
+    res.status(404).json({
+      error: error instanceof Error && error.message,
+    });
+  }
+};
 
 export const _addItem = async (req: Request, res: Response) => {
   try {
