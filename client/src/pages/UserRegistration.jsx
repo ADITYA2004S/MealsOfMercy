@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import useUser from "../hooks/useUser";
 
 export default function UserRegistration() {
-  const { setEmail } = useUser();
+  const { setUser } = useUser();
   const navigate = useNavigate();
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
@@ -38,7 +38,7 @@ export default function UserRegistration() {
       onSubmit: async (values) => {
         try {
           const user = await axios.post("/api/user/register", values);
-          setEmail(user.data.email);
+          setUser({ ...user.data });
           navigate(`/${user.data.email}/restaurants`);
         } catch (error) {
           console.log(error);

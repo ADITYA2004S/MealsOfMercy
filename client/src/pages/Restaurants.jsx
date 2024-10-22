@@ -8,68 +8,93 @@ import LocationIcon from "../images/location.png";
 import PopularIcon from "../images/popular.png";
 import HotelIcon from "../images/hotel.png";
 
+import Navbar from "../component/Navbar";
+
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
-  const { email } = useUser();
+  const { user } = useUser();
 
   useEffect(() => {
-    const fetch = async () => {
-      const restaurants = await axios.get("/api/restaurant");
-      setRestaurants(restaurants.data);
+    const fetchRestaurants = async () => {
+      try {
+        const response = await axios.get("/api/restaurant");
+        setRestaurants(response.data);
+      } catch (error) {
+        console.error("Error fetching restaurants:", error);
+      }
     };
 
-    fetch();
+    fetchRestaurants();
   }, []);
 
   return (
-    <div id="business">
-      <p className="pt-5 pl-5 text-5xl">Good Morning {email}</p>
-      <p className="text-xl pl-20 pt-2">Let&apos;s Explore today&apos;s Menu</p>
+    <div id="business" className="bg-gray-100 min-h-screen">
+      <Navbar />
 
-      <div className="flex justify-center relative">
-        <img className="w-[80rem] rounded-xl" src={PopularIcon} alt="" />
+      <div className="text-center mt-10">
+        <h1 className="text-5xl font-bold text-gray-800">
+          Good Morning, {user.name}!
+        </h1>
+        <p className="text-xl text-gray-600 mt-2">
+          Let&apos;s explore today&apos;s menu
+        </p>
+      </div>
 
-        <div className="absolute grid grid-cols-2 justify-end">
+      <div className="flex justify-center relative mt-8 mb-8">
+        <img
+          className="w-[80rem] rounded-xl shadow-lg"
+          src={PopularIcon}
+          alt="Today's Popular"
+        />
+        <div className="absolute flex flex-col items-center justify-center text-center">
           <p className="font-bold text-4xl text-yellow-500">
             Today&apos;s Popular
           </p>
-          <button className="bg-yellow-500 w-fit m-auto px-2 rounded-lg">
+          <button className="bg-yellow-500 text-white font-semibold mt-2 px-4 py-2 rounded-lg transition-transform transform hover:scale-105">
             See Now
           </button>
         </div>
       </div>
 
-      <div>
-        {restaurants.length === 0 && <div>Loading...</div>}
+      <div className="px-10">
+        {restaurants.length === 0 ? (
+          <div className="text-center text-xl">Loading...</div>
+        ) : (
+          restaurants.map((restaurant) => (
+            <div
+              key={restaurant.id}
+              className="bg-white shadow-md rounded-lg flex items-center space-x-4 p-5 mb-6"
+            >
+              <img
+                className="w-40 h-40 object-cover rounded-lg shadow"
+                src={HotelIcon}
+                alt={restaurant.name}
+              />
 
-        {restaurants.length !== 0 &&
-          restaurants.map((restaurant, index) => (
-            <div key={index} className="pt-20 pl-40 flex space-x-20">
-              <img className="w-40" src={HotelIcon} alt={restaurant.name} />
-
-              <div>
-                <p className="text-3xl pb-5 pt-5 font-Poppins font-bold">
+              <div className="flex-1">
+                <h2 className="text-3xl font-semibold text-gray-800">
                   {restaurant.name}
-                </p>
+                </h2>
 
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 mt-2 mb-5">
                   <img
                     className="w-5 h-5"
                     src={LocationIcon}
                     alt="Location Icon"
                   />
-                  <p className="text-xl">{restaurant.location}</p>
+                  <p className="text-xl text-gray-600">{restaurant.address}</p>
                 </div>
 
                 <Link
-                  to={`/${email}/restaurants/${restaurant.id}`}
-                  className="bg-light-green-700 px-3 py-1 rounded-xl mt-5 text-white font-bold"
+                  to={`/${user.email}/restaurants/${restaurant.id}`}
+                  className="bg-light-green-700 hover:bg-light-green-600 text-white font-bold px-4 py-2 rounded-xl transition-colors"
                 >
                   Book Now
                 </Link>
               </div>
             </div>
-          ))}
+          ))
+        )}
       </div>
     </div>
   );

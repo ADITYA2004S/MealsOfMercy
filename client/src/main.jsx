@@ -13,6 +13,7 @@ import AddItemSuccess from "./pages/AddItemSuccess";
 import Restaurants from "./pages/Restaurants";
 import AddItem from "./pages/AddItem";
 import Ticket from "./pages/Ticket";
+import Error from "./pages/Error";
 import Item from "./pages/Item";
 
 import "./index.css";
@@ -59,6 +60,15 @@ const router = createBrowserRouter([
   {
     path: "/restaurant/item",
     element: <AddItemSuccess />,
+  },
+
+  //------------------------------------------------//
+  //------------------ RESTAURANT ------------------//
+  //------------------------------------------------//
+
+  {
+    path: "/error",
+    element: <Error />,
   },
 ]);
 

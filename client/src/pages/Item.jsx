@@ -3,18 +3,24 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import Icon from "../images/hotel.png";
+
 import useUser from "../hooks/useUser";
 
 export default function Item() {
   const navigate = useNavigate();
-  const { email } = useUser();
+  const { user } = useUser();
   const { id } = useParams();
 
   const [item, setItem] = useState(undefined);
 
   const handleSelect = async () => {
-    await axios.post(`/api/user/${email}/${item.id}`);
-    navigate(`/${email}/ticket/${item.id}`);
+    try {
+      await axios.post(`/api/user/${user.email}/${item.id}`);
+      navigate(`/${user.email}/ticket/${item.id}`);
+    } catch (error) {
+      navigate("/error");
+    }
   };
 
   useEffect(() => {
@@ -49,7 +55,7 @@ export default function Item() {
             className="flex flex-col items-center bg-gray-50 p-4 rounded-lg shadow-sm"
           >
             <img
-              src={""}
+              src={Icon}
               alt={item.name}
               className="w-48 h-48 object-cover rounded-lg mb-4"
             />
@@ -59,12 +65,22 @@ export default function Item() {
               </h4>
             </div>
             <p className="text-sm text-gray-600 mb-4">{item.description}</p>
-            <button
-              className="bg-green-600 text-white px-4 py-2 rounded-lg bg-green transition-all"
-              onClick={handleSelect}
-            >
-              Select
-            </button>
+
+            <div className="flex gap-2">
+              <button
+                className="bg-[#0000ff] text-white px-4 py-2 rounded-lg transition-all"
+                onClick={() => navigate(-1)}
+              >
+                Go Back
+              </button>
+
+              <button
+                className="bg-green-600 text-white px-4 py-2 rounded-lg bg-green transition-all"
+                onClick={handleSelect}
+              >
+                Select
+              </button>
+            </div>
           </div>
         </div>
       </div>
