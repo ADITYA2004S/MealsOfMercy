@@ -2,6 +2,7 @@ import React from "react";
 import "../css/hero.css";
 
 import earth from "../images/globe.png";
+import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <div className="hero-sec">
@@ -17,10 +18,10 @@ export default function Hero() {
           <a href="">
             <p className="explore-btn">Explore Meals</p>
           </a>
-          <a href="">
+          <Link href="/user/register">
             {" "}
             <p className="account-btn">Create Account</p>
-          </a>
+          </Link>
         </div>
       </div>
       <img className="hero-globe-img " src={earth} alt="" />

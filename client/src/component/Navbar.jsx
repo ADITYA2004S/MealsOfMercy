@@ -1,6 +1,7 @@
-import React from "react";
 import "../css/navbar.css";
+
 import logo from "../images/company-logo.png";
+
 export default function Navbar() {
   return (
     <div className="navbar-sec">
