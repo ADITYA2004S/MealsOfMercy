@@ -2,8 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import RestaurantProvider from "./contexts/RestaurantContext";
+
 import Home from "./pages/Home";
 import Restaurants from "./pages/Restaurants";
+import AddItem from "./pages/AddItem";
 
 import UserRegistration from "./pages/UserRegistration";
 import BusinessRegistration from "./pages/BusinessRegistration";
@@ -25,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/restaurant/item/add",
-    element: <div>Add Your Item</div>,
+    element: <AddItem />,
   },
   {
     path: "/restaurants",
@@ -35,6 +38,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RestaurantProvider>
+      <RouterProvider router={router} />
+    </RestaurantProvider>
   </React.StrictMode>
 );

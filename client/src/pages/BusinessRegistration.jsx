@@ -3,7 +3,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
+import useRestaurant from "../hooks/useRestaurant";
+
 export default function BusinessRegistration() {
+  const { setRestaurantID } = useRestaurant();
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -38,7 +41,8 @@ export default function BusinessRegistration() {
       values.manager.mobile = parseInt(values.manager.mobile);
 
       try {
-        await axios.post("/api/restaurant", values);
+        const restaurant = await axios.post("/api/restaurant", values);
+        setRestaurantID(restaurant.data.id);
         navigate("/restaurant/item/add");
       } catch (error) {
         console.log("Error");
