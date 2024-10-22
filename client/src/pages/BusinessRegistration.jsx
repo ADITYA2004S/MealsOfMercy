@@ -45,7 +45,7 @@ export default function BusinessRegistration() {
         setRestaurantID(restaurant.data.id);
         navigate("/restaurant/item/add");
       } catch (error) {
-        console.log("Error");
+        navigate("/error");
       }
     },
   });

@@ -19,7 +19,7 @@ export default function Item() {
       await axios.post(`/api/user/${user.email}/${item.id}`);
       navigate(`/${user.email}/ticket/${item.id}`);
     } catch (error) {
-      navigate("/error");
+      navigate("/add/error");
     }
   };
 

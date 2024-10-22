@@ -28,7 +28,7 @@ export default function UserLogin() {
         setUser({ ...user.data });
         navigate(`/${user.data.email}/restaurants`);
       } catch (error) {
-        console.log(error);
+        navigate("/error");
       }
     },
   });

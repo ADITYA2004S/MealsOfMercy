@@ -14,8 +14,9 @@ import Restaurants from "./pages/Restaurants";
 import UserLogin from "./pages/UseLogin";
 import AddItem from "./pages/AddItem";
 import Ticket from "./pages/Ticket";
-import Error from "./pages/Error";
 import Item from "./pages/Item";
+
+import AddError from "./pages/AddError";
 
 import "./index.css";
 
@@ -72,8 +73,12 @@ const router = createBrowserRouter([
   //------------------------------------------------//
 
   {
+    path: "/add/error",
+    element: <AddError />,
+  },
+  {
     path: "/error",
-    element: <Error />,
+    element: <AddError />,
   },
 ]);
 

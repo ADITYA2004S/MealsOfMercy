@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 
 import useUser from "../hooks/useUser";
 
@@ -12,6 +14,7 @@ import Navbar from "../component/Navbar";
 
 export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
+  const navigate = useNavigate();
   const { user } = useUser();
 
   useEffect(() => {
@@ -20,12 +23,12 @@ export default function Restaurants() {
         const response = await axios.get("/api/restaurant");
         setRestaurants(response.data);
       } catch (error) {
-        console.error("Error fetching restaurants:", error);
+        navigate("/error");
       }
     };
 
     fetchRestaurants();
-  }, []);
+  }, [navigate]);
 
   return (
     <div id="business" className="bg-gray-100 min-h-screen">

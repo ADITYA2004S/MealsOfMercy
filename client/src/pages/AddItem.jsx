@@ -36,9 +36,9 @@ export default function AddItem() {
           items: [values],
         });
 
-        navigate("/restaurant/item/");
+        navigate("/restaurant/item");
       } catch (error) {
-        console.log(error);
+        navigate("/error");
       }
     },
   });
