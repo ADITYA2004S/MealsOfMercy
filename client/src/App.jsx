@@ -10,6 +10,7 @@ import HotelListing from "./component/HotelListing";
 import FoodRegistration from "./component/FoodRegistration";
 import UserRegistration from "./component/UserRegistration";
 import BusinessRegistration from "./component/BusinessRegistration";
+import FoodListing from "./component/FoodListing";
 // import Carousel from "./component/Carousel";
 import "./index.css";
 
@@ -27,6 +28,7 @@ export default function App() {
       <UserRegistration />
       <BusinessRegistration />
       <HotelListing />
+      <FoodListing />
     </div>
   );
 }
