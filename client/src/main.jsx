@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import FoodRegistration from "./component/FoodRegistration";
-
 import Home from "./pages/Home";
 import Restaurants from "./pages/Restaurants";
+
 import UserRegistration from "./pages/UserRegistration";
+import BusinessRegistration from "./pages/BusinessRegistration";
 
 import "./index.css";
 
@@ -20,20 +20,16 @@ const router = createBrowserRouter([
     element: <UserRegistration />,
   },
   {
+    path: "/restaurant/register",
+    element: <BusinessRegistration />,
+  },
+  {
+    path: "/restaurant/item/add",
+    element: <div>Add Your Item</div>,
+  },
+  {
     path: "/restaurants",
     element: <Restaurants />,
-  },
-  {
-    path: "/business/register",
-    element: <Restaurants />,
-  },
-  {
-    path: "/register/user",
-    element: <div>User Registration</div>,
-  },
-  {
-    path: "/business/add",
-    element: <FoodRegistration />,
   },
 ]);
 
