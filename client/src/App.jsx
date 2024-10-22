@@ -8,7 +8,7 @@ import Caraousel from "./component/Caraousel";
 import Footer from "./component/Footer";
 import BusinessRegistration from "./component/BusinessRegistration";
 import FoodRegistration from "./component/FoodRegistration";
-
+import UserRegistration from "./component/UserRegistration";
 // import Carousel from "./component/Carousel";
 import "./index.css";
 
@@ -22,6 +22,9 @@ export default function App() {
       <Solution />
       <Achievement />
       <Footer />
+      <BusinessRegistration />
+      <FoodRegistration />
+      <UserRegistration />
     </div>
   );
 }
