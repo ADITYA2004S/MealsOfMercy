@@ -6,9 +6,10 @@ import Solution from "./component/Solution";
 import Achievement from "./component/Achievement";
 import Caraousel from "./component/Caraousel";
 import Footer from "./component/Footer";
-import BusinessRegistration from "./component/BusinessRegistration";
+import HotelListing from "./component/HotelListing";
 import FoodRegistration from "./component/FoodRegistration";
 import UserRegistration from "./component/UserRegistration";
+import BusinessRegistration from "./component/BusinessRegistration";
 // import Carousel from "./component/Carousel";
 import "./index.css";
 
@@ -22,9 +23,10 @@ export default function App() {
       <Solution />
       <Achievement />
       <Footer />
-      <BusinessRegistration />
       <FoodRegistration />
       <UserRegistration />
+      <BusinessRegistration />
+      <HotelListing />
     </div>
   );
 }

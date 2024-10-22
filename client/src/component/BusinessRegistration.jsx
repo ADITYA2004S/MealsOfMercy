@@ -1,71 +1,134 @@
 import React from "react";
-import popular from "../images/popular.png";
-import hotel from "../images/hotel.png";
-import location from "../images/location.png";
+import image from "../images/hotellogin.png";
+import logo from "../images/company-logo.png";
 
-const hotelInformation = [
-  {
-    name: "Hotel1",
-    location: "123 Street, City A",
-    img: hotel,
-  },
-  {
-    name: "Hotel2",
-    location: "456 Avenue, City B",
-    img: hotel,
-  },
-  {
-    name: "Hotel3",
-    location: "789 Boulevard, City C",
-    img: hotel,
-  },
-  {
-    name: "Hotel4",
-    location: "1010 Road, City D",
-    img: hotel,
-  },
-  {
-    name: "Hotel5",
-    location: "1212 Lane, City E",
-    img: hotel,
-  },
-];
-
-export default function BusinessRegistration() {
+function SignUp() {
   return (
-    <div id="business">
-      <p className="pt-5 pl-5 text-5xl">Good Morning UserName</p>
-      <p className="text-xl pl-20 pt-2">Let's Explore today's Menu</p>
-
-      <div className="flex justify-center relative">
-        <img className="w-[80rem] rounded-xl" src={popular} alt="" />
-        <div className="absolute grid grid-cols-2 justify-end">
-          <p className="font-bold text-4xl text-yellow-500">Today's Popular</p>
-          <button className="bg-yellow-500 w-fit m-auto px-2 rounded-lg">
-            See Now
-          </button>
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg p-8">
+        <div className="mb-6 md:mb-0 md:mr-10 w-64 h-64">
+          <img
+            src={image}
+            alt="Illustration"
+            className="w-full h-full object-cover"
+          />
         </div>
-      </div>
-
-      <div>
-        {hotelInformation.map((info, index) => (
-          <div key={index} className="pt-20 pl-40 flex space-x-20">
-            <img className="w-40" src={info.img} alt={info.name} />
-            <div>
-              <p className="text-3xl pb-5 pt-5 font-Poppins font-bold">
-                {info.name}
-              </p>
-              <div className="flex items-center space-x-2">
-                <img className="w-5 h-5" src={location} alt="Location Icon" />
-                <p className="text-xl">{info.location}</p>
-              </div>
-              <button className="bg-light-green-700 px-3 py-1 rounded-xl mt-5 text-white font-bold">
-                Book Now
-              </button>
-            </div>
+        <div className="w-full max-w-sm">
+          <div className="text-center mb-6">
+            <img
+              src={logo}
+              alt="Seva Meal Logo"
+              className="w-12 mx-auto mb-2"
+            />
+            <h2 className="text-3xl font-semibold text-gray-800">Seva Meal</h2>
+            <p className="text-xl text-gray-600 mt-2">Sign Up</p>
           </div>
-        ))}
+          <form className="space-y-6">
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                Hotel Details
+              </h3>
+              <div className="flex flex-wrap -mx-2">
+                <div className="w-1/2 px-2">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="hotelName"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-all peer"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="hotelName"
+                      className="absolute left-4 top-2 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-[-8px] peer-focus:left-2 peer-focus:text-green-500"
+                    >
+                      Hotel Name
+                    </label>
+                  </div>
+                </div>
+                <div className="w-1/2 px-2">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="hotelAddress"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-all peer"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="hotelAddress"
+                      className="absolute left-4 top-2 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-[-8px] peer-focus:left-2 peer-focus:text-green-500"
+                    >
+                      Hotel Address
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                Manager Details
+              </h3>
+              <div className="flex flex-wrap -mx-2">
+                <div className="w-1/2 px-2">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="managerName"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-all peer"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="managerName"
+                      className="absolute left-4 top-2 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-[-8px] peer-focus:left-2 peer-focus:text-green-500"
+                    >
+                      Manager Name
+                    </label>
+                  </div>
+                </div>
+                <div className="w-1/2 px-2">
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="phoneNumber"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-all peer"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="phoneNumber"
+                      className="absolute left-4 top-2 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-[-8px] peer-focus:left-2 peer-focus:text-green-500"
+                    >
+                      Phone Number
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mb-4">
+              <div className="relative">
+                <input
+                  type="password"
+                  id="password"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500 transition-all peer"
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="password"
+                  className="absolute left-4 top-2 text-gray-500 transition-all peer-focus:text-xs peer-focus:top-[-8px] peer-focus:left-2 peer-focus:text-green-500"
+                >
+                  Password
+                </label>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-green text-white py-2 rounded-lg hover:bg-green-800 focus:outline-none"
+            >
+              Get started
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 }
+
+export default SignUp;
