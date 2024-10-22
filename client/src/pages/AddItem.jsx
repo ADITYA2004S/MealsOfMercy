@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+
 import useRestaurant from "../hooks/useRestaurant";
 
 export default function AddItem() {
@@ -35,7 +36,7 @@ export default function AddItem() {
           items: [values],
         });
 
-        navigate("/restaurant/item/add/success");
+        navigate("/restaurant/item/");
       } catch (error) {
         console.log(error);
       }

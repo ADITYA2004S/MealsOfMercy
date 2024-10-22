@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 
 import BusinessRegistration from "./pages/BusinessRegistration";
 import UserRegistration from "./pages/UserRegistration";
+import AddItemSuccess from "./pages/AddItemSuccess";
 import Restaurants from "./pages/Restaurants";
 import AddItem from "./pages/AddItem";
 import Ticket from "./pages/Ticket";
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
   {
     path: "/restaurant/item/add",
     element: <AddItem />,
+  },
+  {
+    path: "/restaurant/item",
+    element: <AddItemSuccess />,
   },
 ]);
 
