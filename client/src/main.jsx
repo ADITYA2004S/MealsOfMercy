@@ -11,6 +11,7 @@ import BusinessRegistration from "./pages/BusinessRegistration";
 import UserRegistration from "./pages/UserRegistration";
 import AddItemSuccess from "./pages/AddItemSuccess";
 import Restaurants from "./pages/Restaurants";
+import UserLogin from "./pages/UseLogin";
 import AddItem from "./pages/AddItem";
 import Ticket from "./pages/Ticket";
 import Error from "./pages/Error";
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/user/register",
     element: <UserRegistration />,
+  },
+  {
+    path: "/user/Login",
+    element: <UserLogin />,
   },
   {
     path: "/:email/restaurants",
