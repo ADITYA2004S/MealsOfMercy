@@ -4,22 +4,30 @@ export default function Error() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-500 p-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-80 text-center transform transition duration-700 ease-in-out scale-95 animate-fade-in-scale">
-        <h2 className="text-6xl font-bold text-red-500 mb-4">404</h2>
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Oops!</h3>
-        <p className="text-gray-700 mb-6">
-          The page you are looking for does not exist.
-        </p>
-        <p className="text-gray-700 mb-6">You might have taken a wrong turn.</p>
-
-        <button
-          onClick={() => navigate(-1)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
-        >
-          Go Back Home
-        </button>
+    <div className="flex flex-col items-center justify-center h-screen bg-white">
+      <div className="flex items-center space-x-4">
+        <h1 className="text-[10rem] font-bold text-red-600 leading-none">
+          404
+        </h1>
+        <span className="text-2xl font-semibold text-gray-800">ERROR</span>
       </div>
+
+      <h2 className="text-[4rem] font-bold mt-4">
+        <span className="text-black">OH NO!</span>
+        <span className="text-red-600"> But that&apos;s okay!</span>
+      </h2>
+
+      <p className="text-md mt-4 text-gray-500 text-center px-6 max-w-2xl">
+        Even cool people lose their way online at some point, and today is your
+        point. Don&apos;t worry, you&apos;ll find your way back.
+      </p>
+
+      <button
+        onClick={() => navigate(-1)}
+        className="mt-8 bg-red-600 text-white py-4 px-10 text-xl font-semibold rounded-lg hover:bg-red-500 transition"
+      >
+        Back to home
+      </button>
     </div>
   );
 }
