@@ -5,11 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RestaurantProvider from "./contexts/RestaurantContext";
 
 import Home from "./pages/Home";
-import Restaurants from "./pages/Restaurants";
-import AddItem from "./pages/AddItem";
 
 import UserRegistration from "./pages/UserRegistration";
+import Restaurants from "./pages/Restaurants";
+import Item from "./pages/Item";
+
 import BusinessRegistration from "./pages/BusinessRegistration";
+import AddItem from "./pages/AddItem";
 
 import "./index.css";
 
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
     element: <UserRegistration />,
   },
   {
+    path: "/user/item/:id",
+    element: <div>Hi</div>,
+  },
+  {
     path: "/restaurant/register",
     element: <BusinessRegistration />,
   },
@@ -33,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/restaurants",
     element: <Restaurants />,
+  },
+  {
+    path: "/restaurants/:id",
+    element: <Item />,
   },
 ]);
 

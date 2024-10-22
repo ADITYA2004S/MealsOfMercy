@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import LocationIcon from "../images/location.png";
@@ -36,24 +37,33 @@ export default function Restaurants() {
       </div>
 
       <div>
+        {restaurants.length === 0 && <div>Loading...</div>}
+
         {restaurants.length !== 0 &&
-          restaurants.map((info, index) => (
+          restaurants.map((restaurant, index) => (
             <div key={index} className="pt-20 pl-40 flex space-x-20">
-              <img className="w-40" src={HotelIcon} alt={info.name} />
+              <img className="w-40" src={HotelIcon} alt={restaurant.name} />
 
               <div>
                 <p className="text-3xl pb-5 pt-5 font-Poppins font-bold">
-                  {info.name}
+                  {restaurant.name}
                 </p>
 
                 <div className="flex items-center space-x-2">
-                  <img className="w-5 h-5" src={LocationIcon} alt="Location Icon" />
-                  <p className="text-xl">{info.location}</p>
+                  <img
+                    className="w-5 h-5"
+                    src={LocationIcon}
+                    alt="Location Icon"
+                  />
+                  <p className="text-xl">{restaurant.location}</p>
                 </div>
 
-                <button className="bg-light-green-700 px-3 py-1 rounded-xl mt-5 text-white font-bold">
+                <Link
+                  to={`/restaurants/${restaurant.id}`}
+                  className="bg-light-green-700 px-3 py-1 rounded-xl mt-5 text-white font-bold"
+                >
                   Book Now
-                </button>
+                </Link>
               </div>
             </div>
           ))}
