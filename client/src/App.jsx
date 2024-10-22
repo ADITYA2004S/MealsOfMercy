@@ -11,7 +11,10 @@ import FoodRegistration from "./component/FoodRegistration";
 import UserRegistration from "./component/UserRegistration";
 import BusinessRegistration from "./component/BusinessRegistration";
 import FoodListing from "./component/FoodListing";
-// import Carousel from "./component/Carousel";
+import FoodSuccess from "./component/FoodSuccess";
+import ManagerDashboard from "./component/ManagerDashboard";
+import Ticket from "./component/Ticket";
+
 import "./index.css";
 
 export default function App() {
@@ -29,6 +32,10 @@ export default function App() {
       <BusinessRegistration />
       <HotelListing />
       <FoodListing />
+
+      <FoodSuccess />
+      <ManagerDashboard />
+      <Ticket />
     </div>
   );
 }
