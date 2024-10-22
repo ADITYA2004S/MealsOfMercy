@@ -1,16 +1,15 @@
-import { Carousel, Typography, Button } from "@material-tailwind/react";
-import carousel from "../images/carousel.jpg";
+import { Carousel as _, Typography, Button } from "@material-tailwind/react";
+import CarouselIcon from "../images/carousel.jpg";
 import carousel2 from "../images/carousel2.jpg";
 import carousel3 from "../images/carousel3.jpg";
 
-export default function CarouselWithContent() {
+export default function Carousel() {
   return (
-    <Carousel className=" mt-40">
+    <_ className=" mt-40">
       <div className="relative h-[700px] w-full">
         {" "}
-        {/* Set a fixed height */}
         <img
-          src={carousel}
+          src={CarouselIcon}
           alt="image 1"
           className="h-full w-full object-cover"
         />
@@ -118,6 +117,6 @@ export default function CarouselWithContent() {
           </div>
         </div>
       </div>
-    </Carousel>
+    </_>
   );
 }

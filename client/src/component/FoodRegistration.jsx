@@ -1,12 +1,9 @@
-import React from "react";
-
-export default function MenuDecision() {
+export default function FoodRegistration() {
   return (
     <div className="flex flex-col items-center justify-center h-screen p-5">
-      <h1 className="text-3xl font-bold mb-5">Decide today’s Menu</h1>
+      <h1 className="text-3xl font-bold mb-5">Decide today&apos;s Menu</h1>
 
       <div className="flex space-x-10">
-        {/* Image Upload Section */}
         <div className="flex flex-col items-center">
           <div className="w-60 h-60 border-2 border-gray-400 flex items-center justify-center">
             <img
@@ -15,12 +12,12 @@ export default function MenuDecision() {
               className="w-40 h-40"
             />
           </div>
+
           <button className="mt-5 bg-green text-yellow-100 px-4 py-2 rounded-md font-semibold">
             Go Live
           </button>
         </div>
 
-        {/* Input Form Section */}
         <div className="flex flex-col space-y-4">
           <input
             type="text"
