@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import BusinessRegistration from "./component/BusinessRegistration";
 import FoodRegistration from "./component/FoodRegistration";
 
 import Home from "./pages/Home";
+import Restaurants from "./pages/Restaurants";
+import UserRegistration from "./pages/UserRegistration";
 
 import "./index.css";
 
@@ -15,8 +16,16 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
+    path: "/user/register",
+    element: <UserRegistration />,
+  },
+  {
+    path: "/restaurants",
+    element: <Restaurants />,
+  },
+  {
     path: "/business/register",
-    element: <BusinessRegistration />,
+    element: <Restaurants />,
   },
   {
     path: "/register/user",

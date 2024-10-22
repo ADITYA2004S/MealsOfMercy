@@ -5,7 +5,7 @@ import LocationIcon from "../images/location.png";
 import PopularIcon from "../images/popular.png";
 import HotelIcon from "../images/hotel.png";
 
-export default function BusinessRegistration() {
+export default function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
