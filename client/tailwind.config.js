@@ -19,6 +19,21 @@ export default withMT({
       colors: {
         green: "#016d6c",
       },
+      keyframes: {
+        fadeInScale: {
+          "0%": {
+            opacity: 0,
+            transform: "scale(0.8)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        },
+      },
+      animation: {
+        "fade-in-scale": "fadeInScale 0.6s ease-in-out forwards",
+      },
     },
   },
   plugins: [textShadow],

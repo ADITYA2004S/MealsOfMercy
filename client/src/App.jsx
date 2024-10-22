@@ -14,6 +14,7 @@ import FoodListing from "./component/FoodListing";
 import FoodSuccess from "./component/FoodSuccess";
 import ManagerDashboard from "./component/ManagerDashboard";
 import Ticket from "./component/Ticket";
+import BookingError from "./component/BookingError";
 
 import "./index.css";
 
@@ -36,6 +37,7 @@ export default function App() {
       <FoodSuccess />
       <ManagerDashboard />
       <Ticket />
+      <BookingError />
     </div>
   );
 }

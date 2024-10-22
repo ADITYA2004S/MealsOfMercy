@@ -12,29 +12,42 @@ const ticketDetails = {
 
 export default function Ticket() {
   const [displayDetails, setDisplayDetails] = useState({});
+  const [typedDetails, setTypedDetails] = useState({});
+  const [currentDetail, setCurrentDetail] = useState("");
+  const [currentKey, setCurrentKey] = useState(0);
 
   useEffect(() => {
     const keys = Object.keys(ticketDetails);
-    let index = 0;
+    let interval;
 
-    const interval = setInterval(() => {
-      if (index < keys.length) {
-        setDisplayDetails((prev) => ({
-          ...prev,
-          [keys[index]]: ticketDetails[keys[index]],
-        }));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 1500); // Adjust this value for the speed of the typewriter effect
+    if (currentKey < keys.length) {
+      // Start typing effect for the current detail
+      const detail = ticketDetails[keys[currentKey]];
+      let charIndex = 0;
+
+      interval = setInterval(() => {
+        if (charIndex < detail.length) {
+          setCurrentDetail((prev) => prev + detail[charIndex]);
+          charIndex++;
+        } else {
+          // Move to the next key after typing the current detail
+          setTypedDetails((prev) => ({
+            ...prev,
+            [keys[currentKey]]: detail,
+          }));
+          setCurrentKey((prev) => prev + 1);
+          setCurrentDetail(""); // Reset current detail for the next one
+          clearInterval(interval); // Stop typing for the current detail
+        }
+      }, 100); // Adjust speed of typing effect
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentKey]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-6">
-      <div className="bg-green-500 shadow-lg rounded-lg p-6 w-80">
+    <div className="flex items-center justify-center min-h-screen p-6 ">
+      <div className="bg-green-500 shadow-lg rounded-lg p-6 w-80 ">
         <h2 className="text-2xl font-bold text-center text-black mb-4">
           Ticket Details
         </h2>
@@ -44,11 +57,14 @@ export default function Ticket() {
               key.charAt(0).toUpperCase() + key.slice(1)
             }:`}</span>
             <p className="text-black">
-              {displayDetails[key] || ""} {/* Show the value or empty */}
+              {typedDetails[key] || ""}{" "}
+              {currentKey === Object.keys(ticketDetails).indexOf(key)
+                ? currentDetail
+                : ""}
             </p>
           </div>
         ))}
-        <button className="w-full bg-white text-green-500 px-4 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+        <button className="w-full text-black text-green-500 px-4 py-2 rounded-lg bg-white transition duration-300">
           Confirm
         </button>
       </div>
