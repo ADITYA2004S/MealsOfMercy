@@ -1,6 +1,8 @@
-import "../css/navbar.css";
+import { Link } from "react-router-dom";
 
 import logo from "../images/company-logo.png";
+
+import "../css/navbar.css";
 
 export default function Navbar() {
   return (
@@ -12,10 +14,11 @@ export default function Navbar() {
 
       <div className="nav-list">
         <li>About</li>
-        <a href="#business">
-          {" "}
+
+        <Link to={"/restaurant/register"}>
           <li>Business</li>
-        </a>
+        </Link>
+
         <li>
           {" "}
           <span className="bg-black bg-opacity-20 p-2 ">Food Waste</span>
